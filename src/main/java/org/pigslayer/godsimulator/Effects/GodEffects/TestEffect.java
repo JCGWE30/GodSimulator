@@ -1,13 +1,12 @@
 package org.pigslayer.godsimulator.Effects.GodEffects;
 
-import org.bukkit.Location;
 import org.bukkit.Material;
-import org.bukkit.entity.Player;
-import org.pigslayer.godsimulator.Effects.GodEffect;
 import org.pigslayer.godsimulator.Effects.RegisterEffect;
+import org.pigslayer.godsimulator.Effects.Target.PlayerTargetedGodEffect;
+import org.pigslayer.godsimulator.Structs.GodPlayer;
 
 @RegisterEffect
-public class TestEffect implements GodEffect {
+public class TestEffect implements PlayerTargetedGodEffect {
 
     @Override
     public String getName() {
@@ -25,12 +24,8 @@ public class TestEffect implements GodEffect {
     }
 
     @Override
-    public int getTargetType() {
-        return 0;
-    }
-
-    @Override
-    public void execute(Player p, Location loc) {
-
+    public void execute(GodPlayer[] players) {
+        GodPlayer player = players[0];
+        player.getPlayer().sendMessage("Hey there sunshine");
     }
 }

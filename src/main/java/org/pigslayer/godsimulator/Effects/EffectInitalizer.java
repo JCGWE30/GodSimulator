@@ -1,7 +1,7 @@
 package org.pigslayer.godsimulator.Effects;
 
+import org.pigslayer.godsimulator.Effects.Target.GodEffect;
 import org.reflections.Reflections;
-import org.reflections.scanners.Scanner;
 import org.reflections.scanners.Scanners;
 
 import java.util.ArrayList;
@@ -22,9 +22,8 @@ public class EffectInitalizer {
                 @SuppressWarnings("unchecked")
                 Class<? extends GodEffect> clazz = (Class<? extends GodEffect>) Class.forName(str);
                 effects.add(clazz.getDeclaredConstructor().newInstance());
-                return effects;
             }catch(Exception ignored){}
         }
-        return null;
+        return effects;
     }
 }
