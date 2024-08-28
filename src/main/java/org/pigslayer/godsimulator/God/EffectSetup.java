@@ -25,8 +25,15 @@ public class EffectSetup {
             new PlayerSelectInventory(p,(PlayerTargetedGodEffect) effect);
         }else{
             callingEffects.put(p.getPlayer(),(EnvironmentTargetedGodEffect) effect);
-            p.getPlayer().sendMessage("§ePunch the air to activate the effect on the block your looking at (no range or limit). Re open the godmenu to cancel this");
             p.getPlayer().closeInventory();
+            new BukkitRunnable(){
+                @Override
+                public void run() {
+                    p.getPlayer().spigot().sendMessage(ChatMessageType.ACTION_BAR,new TextComponent("§eSelected Effect: §a"+effect.getName()));
+                    if(!callingEffects.containsKey(p.getPlayer()))
+                        this.cancel();
+                }
+            }.runTaskTimer(GodSimulator.instance,1,1);
         }
     }
 
@@ -37,7 +44,6 @@ public class EffectSetup {
         EnvironmentTargetedGodEffect effect = callingEffects.get(p);
 
         BlockIterator blocks = new BlockIterator(p.getEyeLocation(),0,0);
-
 
         while(blocks.hasNext()){
             Block b = blocks.next();

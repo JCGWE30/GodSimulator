@@ -37,6 +37,7 @@ public class PlayerSelectInventory {
     private PlayerTargetedGodEffect selectedEffect;
     private GodPlayer viewer;
     private String dirtySlot;
+    private boolean shouldClose = false;
 
     public PlayerSelectInventory(GodPlayer p, PlayerTargetedGodEffect effect){
         List<GodPlayer> players = Bukkit.getOnlinePlayers().stream().map(GodPlayer::convert).collect(Collectors.toList());
@@ -50,7 +51,7 @@ public class PlayerSelectInventory {
                 .setInnerInventory(inner, GodInventory.backgroundSlot)
                 .updateOnClick()
                 //This is very odd, Not waiting a tick causes the meny to break, might wanna figure this one out.
-                .closeAction(()->Bukkit.getScheduler().runTaskLater(GodSimulator.instance,() -> {GodInventory.openInventory(p);},2));
+                .closeAction(()->{if(shouldClose) return; Bukkit.getScheduler().runTaskLater(GodSimulator.instance,() -> {GodInventory.openInventory(p);},2);});
         int count = 0;
 
         Slot infoSlot = new Slot()
@@ -125,6 +126,7 @@ public class PlayerSelectInventory {
     }
 
     private void activateEffect(ClickType ct){
+        shouldClose=true;
         viewer.getPlayer().closeInventory();
         selectedEffect.execute(selectedPlayers.toArray(new GodPlayer[0]));
     }
