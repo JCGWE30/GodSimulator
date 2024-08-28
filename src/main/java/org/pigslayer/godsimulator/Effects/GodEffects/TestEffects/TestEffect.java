@@ -7,7 +7,7 @@ import org.pigslayer.godsimulator.Structs.GodPlayer;
 
 import java.util.Arrays;
 
-@RegisterEffect
+//@RegisterEffect
 public class TestEffect implements PlayerTargetedGodEffect {
 
     @Override

@@ -5,7 +5,7 @@ import org.bukkit.World;
 import org.pigslayer.godsimulator.Effects.RegisterEffect;
 import org.pigslayer.godsimulator.Effects.Target.EnvironmentTargetedGodEffect;
 
-@RegisterEffect
+//@RegisterEffect
 public class TestEnvEffect implements EnvironmentTargetedGodEffect {
     @Override
     public String getName() {
