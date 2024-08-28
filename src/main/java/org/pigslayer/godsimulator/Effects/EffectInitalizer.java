@@ -28,7 +28,7 @@ public class EffectInitalizer {
                 if(cs instanceof Listener){
                     QuickRegistering.registerEvent(GodSimulator.instance,(Listener) cs);
                 }
-                effects.add(clazz.getDeclaredConstructor().newInstance());
+                effects.add(cs);
             }catch(Exception ignored){}
         }
         return effects;
