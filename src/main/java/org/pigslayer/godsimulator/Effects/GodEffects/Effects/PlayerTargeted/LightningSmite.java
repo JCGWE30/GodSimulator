@@ -1,4 +1,4 @@
-package org.pigslayer.godsimulator.Effects.GodEffects.Effects;
+package org.pigslayer.godsimulator.Effects.GodEffects.Effects.PlayerTargeted;
 
 import org.bukkit.Material;
 import org.bukkit.entity.Player;
@@ -38,8 +38,10 @@ public class LightningSmite implements PlayerTargetedGodEffect, Listener {
 
     @EventHandler
     public void die(PlayerDeathEvent e){
-        if(smitedPlayers.contains(e.getEntity()))
-            e.setDeathMessage(e.getEntity().getName()+" was smited by §e§lZEUS");
+        if(smitedPlayers.contains(e.getEntity())) {
+            e.setDeathMessage(e.getEntity().getName() + " was smited by §e§lZEUS");
+            smitedPlayers.remove(e.getEntity());
+        }
     }
 
     @Override

@@ -25,6 +25,7 @@ public class EffectInitalizer {
                 @SuppressWarnings("unchecked")
                 Class<? extends GodEffect> clazz = (Class<? extends GodEffect>) Class.forName(str);
                 GodEffect cs = clazz.getDeclaredConstructor().newInstance();
+                cs.start();
                 if(cs instanceof Listener){
                     QuickRegistering.registerEvent(GodSimulator.instance,(Listener) cs);
                 }

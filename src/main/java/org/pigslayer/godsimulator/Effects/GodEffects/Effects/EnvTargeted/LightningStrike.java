@@ -1,25 +1,21 @@
-package org.pigslayer.godsimulator.Effects.GodEffects.Effects;
+package org.pigslayer.godsimulator.Effects.GodEffects.Effects.EnvTargeted;
 
+import org.bukkit.Location;
 import org.bukkit.Material;
+import org.bukkit.World;
 import org.pigslayer.godsimulator.Effects.RegisterEffect;
+import org.pigslayer.godsimulator.Effects.Target.EnvironmentTargetedGodEffect;
 import org.pigslayer.godsimulator.Effects.Target.PlayerTargetedGodEffect;
 import org.pigslayer.godsimulator.Structs.GodPlayer;
 
 import java.util.Arrays;
 
 @RegisterEffect
-public class LightningStrike implements PlayerTargetedGodEffect {
-    @Override
-    public int getMaxPlayers() {
-        return 50;
-    }
+public class LightningStrike implements EnvironmentTargetedGodEffect {
 
     @Override
-    public void execute(GodPlayer[] players) {
-        Arrays.stream(players).map(GodPlayer::getPlayer).forEach((p)->{
-            p.sendMessage("§eYou have been Striked!!!");
-            p.getWorld().strikeLightning(p.getLocation());
-        });
+    public void execute(World wld, Location loc) {
+        wld.strikeLightning(loc);
     }
 
     @Override
@@ -29,7 +25,7 @@ public class LightningStrike implements PlayerTargetedGodEffect {
 
     @Override
     public String getDescription() {
-        return "Strike players with lighting!";
+        return "Rain down hellfire from above";
     }
 
     @Override

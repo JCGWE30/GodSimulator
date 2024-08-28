@@ -1,6 +1,7 @@
 package org.pigslayer.godsimulator.Effects.GodEffects.TestEffects;
 
 import org.bukkit.Location;
+import org.bukkit.Material;
 import org.bukkit.World;
 import org.pigslayer.godsimulator.Effects.RegisterEffect;
 import org.pigslayer.godsimulator.Effects.Target.EnvironmentTargetedGodEffect;
@@ -15,6 +16,11 @@ public class TestEnvEffect implements EnvironmentTargetedGodEffect {
     @Override
     public String getDescription() {
         return "Test Environment";
+    }
+
+    @Override
+    public Material getIcon() {
+        return Material.PAPER;
     }
 
     @Override
