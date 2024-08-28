@@ -1,4 +1,4 @@
-package org.pigslayer.godsimulator.Effects.GodEffects;
+package org.pigslayer.godsimulator.Effects.GodEffects.TestEffects;
 
 import org.bukkit.Material;
 import org.pigslayer.godsimulator.Effects.RegisterEffect;
