@@ -2,6 +2,8 @@ name: GodSimulator
 version: '${project.version}'
 main: org.pigslayer.godsimulator.GodSimulator
 api-version: '1.21'
+depend:
+  - Slayerutils
 commands:
   godmenu:
     usage: godmenu

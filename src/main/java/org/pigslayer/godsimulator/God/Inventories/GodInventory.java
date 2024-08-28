@@ -9,7 +9,7 @@ import slayerutils.slayerutils.CustomInventories.*;
 
 public class GodInventory {
     protected final static Slot backgroundSlot = new Slot()
-            .type(Material.BLACK_STAINED_GLASS_PANE)
+            .type(Material.BEDROCK)
             .name(" ");
 
     public static void openInventory(GodPlayer p){
@@ -32,6 +32,7 @@ public class GodInventory {
                     }));
                     count++;
         }
+        EffectSetup.openMenu(p);
         new CustomInventory(godMenu,p.getPlayer());
     }
 
